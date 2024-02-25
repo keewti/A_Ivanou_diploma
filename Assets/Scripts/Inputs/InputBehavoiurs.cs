@@ -6,4 +6,6 @@ public abstract class InputBehavoiurs : MonoBehaviour, IInputs
 {
     public abstract bool Jumping();
     public abstract Vector3 Directions();
+    public abstract bool Attacking();
+
 }

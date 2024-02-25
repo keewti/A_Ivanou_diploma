@@ -17,6 +17,10 @@ public class KeyboardInputs : InputBehavoiurs
     }
     public override bool Jumping()
     {
-            return Input.GetKeyDown(KeyCode.Space);
+        return Input.GetKeyDown(KeyCode.Space);
+    }
+    public override bool Attacking()
+    {
+        return Input.GetKeyDown(KeyCode.W);
     }
 }
