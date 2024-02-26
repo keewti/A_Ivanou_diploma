@@ -8,12 +8,17 @@ public class Enemy : MonoBehaviour
     [SerializeField] private EnemiesSO _enemy;
     [SerializeField] private Player _player;
     private Animator _animator;
+    private int _maxHP;
     private int _curHP;
+    private void Awake()
+    {
+        Initialize();
+    }
     private void Start()
     {
         _animator = GetComponent<Animator>();
         _player = FindObjectOfType<Player>(); // TODO: make enemies find player without it
-        //var a = _enemy.HP;
+        _curHP = _maxHP;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -24,15 +29,15 @@ public class Enemy : MonoBehaviour
     }
     public void TakeDMG(int dmg)
     {
-        _enemy.UpdateHealth(dmg);
+        UpdateHealth(dmg);
         Debug.Log(_enemy.HP);
         DeathCheck();
     }
     private void DeathCheck() // todo: make elder class for enemies and player to do stuff like this
     {
-        if (_enemy.HP <= 0) 
+        if (_curHP <= 0) 
         {
-            _enemy.HP = 0;
+            _curHP = 0;
             _animator.SetBool("isDead", true);
         }
         StartCoroutine(DeathRoutine(0.65f));
@@ -48,5 +53,12 @@ public class Enemy : MonoBehaviour
         }
         gameObject.SetActive(false);
     }
-
+    private void Initialize()
+    {
+        _maxHP = _enemy.HP;
+    }
+    public void UpdateHealth(int dmg)
+    {
+        _curHP -= dmg;
+    }
 }

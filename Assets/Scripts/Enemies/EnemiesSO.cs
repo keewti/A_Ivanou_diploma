@@ -12,13 +12,9 @@ public class EnemiesSO : ScriptableObject
     public string Name
     { get { return _name; } }
     public int HP
-    { get { return _hp; } set { } }
+    { get { return _hp; } }
     public int DMG
     { get { return _dmg; } }
     public float Speed
     { get { return _speed; } }
-    public void UpdateHealth(int dmg)
-    {
-        _hp -= dmg;
-    }
 }
