@@ -17,4 +17,8 @@ public class EnemiesSO : ScriptableObject
     { get { return _dmg; } }
     public float Speed
     { get { return _speed; } }
+    public void UpdateHealth(int dmg)
+    {
+        _hp -= dmg;
+    }
 }

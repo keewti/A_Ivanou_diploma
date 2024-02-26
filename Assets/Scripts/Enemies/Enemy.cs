@@ -7,7 +7,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] private EnemiesSO _enemy;
     [SerializeField] private Player _player;
     private Animator _animator;
-
     private void Start()
     {
         _animator = GetComponent<Animator>();
@@ -22,13 +21,13 @@ public class Enemy : MonoBehaviour
     }
     public void TakeDMG(int dmg)
     {
-        _enemy.HP -= dmg;
+        _enemy.UpdateHealth(dmg);
         Debug.Log(_enemy.HP);
     }
     private void DeathCheck() // todo: make elder class for enemies and player to do stuff like this
     {
         if (_enemy.HP <= 0) 
-        { 
+        {
             _enemy.HP = 0;
             _animator.SetBool("isDead", true);
         }
