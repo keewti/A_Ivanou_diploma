@@ -5,15 +5,9 @@ using UnityEngine;
 
 public class KeyboardInputs : InputBehavoiurs
 {
-    public override Vector3 Directions()
+    public override float Directions()
     {
-        var inputs = new Vector3
-        {
-            x = Input.GetAxis("Horizontal"),
-            y = 0,
-            z = 0
-        };
-        return inputs;
+        return Input.GetAxis("Horizontal");
     }
     public override bool Jumping()
     {
@@ -21,6 +15,6 @@ public class KeyboardInputs : InputBehavoiurs
     }
     public override bool Attacking()
     {
-        return Input.GetKeyDown(KeyCode.W);
+        return Input.GetKeyDown(KeyCode.LeftControl);
     }
 }

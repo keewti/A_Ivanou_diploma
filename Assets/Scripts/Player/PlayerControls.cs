@@ -11,27 +11,29 @@ public class PlayerControls : MonoBehaviour
     [SerializeField] private float _jumpLenght = 0.3f;
     [SerializeField] private LayerMask _ignoreLayers;
     private Animator _animator;
-    private CharacterController _charController;
+    private Rigidbody2D _rb;
     private SpriteRenderer _spriteRenderer;
     private Player _player;
     private void Start()
     {
-        _charController = GetComponent<CharacterController>();
+        _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _player = GetComponent<Player>();
     }
     private void Update()
     {
-        Moving();
-        Jumping();
-        Gravity();
         Attacking();
+        Jumping();
+    }
+    private void FixedUpdate()
+    {
+        Moving();
     }
     private void Moving()
     {
-        _charController.Move(_inputs.Directions() * (_player.PlayerStats.speed * 0.01f));
-        if (_inputs.Directions().x != 0f)
+        _rb.velocity = new Vector2(_inputs.Directions() * _player.PlayerStats.speed * Time.deltaTime, _rb.velocity.y);
+        if (_rb.velocity.x != 0f)
         {
             _animator.SetBool("isRunning", true);
         }
@@ -39,12 +41,12 @@ public class PlayerControls : MonoBehaviour
         {
             _animator.SetBool("isRunning", false);
         }
-        if (_inputs.Directions().x > 0f)
+        if (_rb.velocity.x > 0f)
         {
             _spriteRenderer.flipX = false;
         }
         else
-        if (_inputs.Directions().x < 0f)
+        if (_rb.velocity.x < 0f)
         {
             _spriteRenderer.flipX = true;
         }
@@ -53,6 +55,7 @@ public class PlayerControls : MonoBehaviour
     {
         if (_inputs.Jumping() && IsGrounded() && (_animator.GetBool("isAttacking") != true))
         {
+            Debug.Log("jump");
             StartCoroutine(JumpRoutine(_jumpLenght));
         }
     }
@@ -63,10 +66,6 @@ public class PlayerControls : MonoBehaviour
             _player.Attack();
         }
     }
-    private void Gravity()
-    {
-        _charController.Move((Vector3.down * 9.8f) * Time.deltaTime);
-    }
     IEnumerator JumpRoutine(float time)
     {
         _animator.SetBool("isJumping", true);
@@ -74,13 +73,15 @@ public class PlayerControls : MonoBehaviour
         while (counter <= time)
         {
             counter += Time.deltaTime;
-            _charController.Move((_jumpHeight * Vector3.up) * Time.deltaTime);
+            _rb.velocity = new Vector2(_rb.velocity.x, _jumpHeight);
             yield return null;
         }
         _animator.SetBool("isJumping", false);
     }
     private bool IsGrounded()
     {
-        return Physics.Raycast(transform.position, Vector2.down, 1f, ~_ignoreLayers);
+        var hit = Physics2D.Raycast(transform.position, Vector2.down, 1f, ~_ignoreLayers);
+        Debug.Log(hit);
+        return hit.collider != null;
     }
 }

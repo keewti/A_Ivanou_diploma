@@ -5,7 +5,7 @@ using UnityEngine.Scripting.APIUpdating;
 
 public interface IInputs
 {
-    public Vector3 Directions();
+    public float Directions();
     public bool Jumping();
     public bool Attacking();
 }
