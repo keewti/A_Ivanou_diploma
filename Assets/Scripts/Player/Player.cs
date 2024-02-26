@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     private Animator _animator;
     private float _curSpeed;
     public static UnityEvent<bool> IsAlive = new();
+    public static UnityEvent<int> HPChanged = new();
     private void Start()
     {
         _curSpeed = PlayerStats.speed;
@@ -32,6 +33,7 @@ public class Player : MonoBehaviour
     public void TakeDMG(int DMG)
     {
         PlayerStats.hp -= DMG;
+        HPChanged.Invoke(DMG);
         DeathCheck();
     }
     private void DeathCheck()
