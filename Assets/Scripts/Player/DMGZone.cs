@@ -14,34 +14,8 @@ public class DMGZone : MonoBehaviour
         Debug.Log(collision.gameObject);
         if (collision.transform.CompareTag("Enemy"))
         {
-            var enemy = collision.transform.parent.GetComponent<Enemy>();
+            var enemy = collision.transform.GetComponent<Enemy>();
             enemy.TakeDMG(player.PlayerStats.DMG);
         }
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log(collision.gameObject);
-        if (collision.transform.CompareTag("Enemy"))
-        {
-            var enemy = collision.transform.parent.GetComponent<Enemy>();
-            enemy.TakeDMG(player.PlayerStats.DMG);
-        }
-    }
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        Debug.Log(collision.gameObject);
-        if (collision.transform.CompareTag("Enemy"))
-        {
-            var enemy = collision.transform.parent.GetComponent<Enemy>();
-            enemy.TakeDMG(player.PlayerStats.DMG);
-        }
-    }
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        Debug.Log(collision.gameObject);
-    }
-    private void Update()
-    {
-
     }
 }
