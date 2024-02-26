@@ -30,7 +30,6 @@ public class Enemy : MonoBehaviour
     public void TakeDMG(int dmg)
     {
         UpdateHealth(dmg);
-        Debug.Log(_curHP);
         DeathCheck();
     }
     private void DeathCheck() // todo: make elder class for enemies and player to do stuff like this
@@ -39,12 +38,12 @@ public class Enemy : MonoBehaviour
         {
             _curHP = 0;
             _animator.SetBool("isDead", true);
+            StartCoroutine(DeathRoutine(0.65f));
         }
-        StartCoroutine(DeathRoutine(0.65f));
     }
     IEnumerator DeathRoutine(float time)
     {
-        _animator.SetBool("isJumping", true);
+        _animator.SetBool("isDead", true);
         float counter = 0;
         while (counter <= time)
         {
