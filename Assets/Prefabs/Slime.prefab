@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7352953666929008853}
   - component: {fileID: 7352953666929008842}
   - component: {fileID: 7352953666929008843}
-  - component: {fileID: 8585103563651369556}
   - component: {fileID: -3682722620875725027}
+  - component: {fileID: 5419901557294815931}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Untagged
@@ -100,19 +100,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemy: {fileID: 11400000, guid: 33373c6508c13d14c9682f8545e1f46b, type: 2}
---- !u!65 &8585103563651369556
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7352953666929008840}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.125, y: 0.6875, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &-3682722620875725027
 Animator:
   serializedVersion: 5
@@ -123,7 +110,7 @@ Animator:
   m_GameObject: {fileID: 7352953666929008840}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1ca152c2157612642a3b4baa5756774b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -134,3 +121,29 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!61 &5419901557294815931
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7352953666929008840}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.125, y: 0.6875}
+    newSize: {x: 0.36, y: 0.22}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.125, y: 0.6875}
+  m_EdgeRadius: 0

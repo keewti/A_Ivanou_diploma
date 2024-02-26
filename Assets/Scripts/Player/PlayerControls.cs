@@ -14,6 +14,11 @@ public class PlayerControls : MonoBehaviour
     private Rigidbody2D _rb;
     private SpriteRenderer _spriteRenderer;
     private Player _player;
+    private bool _isAlive = true;
+    private void OnEnable()
+    {
+        Player.IsAlive.AddListener(IsPlayerAlive);
+    }
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -23,12 +28,18 @@ public class PlayerControls : MonoBehaviour
     }
     private void Update()
     {
-        Attacking();
-        Jumping();
+        if (_isAlive)
+        {
+            Attacking();
+            Jumping();
+        }
     }
     private void FixedUpdate()
     {
-        Moving();
+        if (_isAlive)
+        {
+            Moving();
+        }
     }
     private void Moving()
     {
@@ -55,7 +66,6 @@ public class PlayerControls : MonoBehaviour
     {
         if (_inputs.Jumping() && IsGrounded() && (_animator.GetBool("isAttacking") != true))
         {
-            Debug.Log("jump");
             StartCoroutine(JumpRoutine(_jumpLenght));
         }
     }
@@ -81,7 +91,8 @@ public class PlayerControls : MonoBehaviour
     private bool IsGrounded()
     {
         var hit = Physics2D.Raycast(transform.position, Vector2.down, 1f, ~_ignoreLayers);
-        Debug.Log(hit);
         return hit.collider != null;
     }
+    private void IsPlayerAlive(bool isAlive) => _isAlive = isAlive;
+
 }

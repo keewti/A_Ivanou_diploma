@@ -313,6 +313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemy: {fileID: 0}
+  _player: {fileID: 0}
 --- !u!4 &667318842
 Transform:
   m_ObjectHideFlags: 0
@@ -462,17 +463,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3840091823120815725, guid: fd637a46c3810814498f9b5021e250e1, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 3840091823120815727, guid: fd637a46c3810814498f9b5021e250e1, type: 3}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3840091823120815727, guid: fd637a46c3810814498f9b5021e250e1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.41
+      value: -7.59
       objectReference: {fileID: 0}
     - target: {fileID: 3840091823120815727, guid: fd637a46c3810814498f9b5021e250e1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.3
+      value: -2.27
       objectReference: {fileID: 0}
     - target: {fileID: 3840091823120815727, guid: fd637a46c3810814498f9b5021e250e1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -515,10 +520,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -3682722620875725027, guid: 88a2bd83cd9f44646a885b3b0679e627, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 1ca152c2157612642a3b4baa5756774b, type: 2}
     - target: {fileID: 7352953666929008840, guid: 88a2bd83cd9f44646a885b3b0679e627, type: 3}
       propertyPath: m_Name
       value: Slime
@@ -566,18 +567,6 @@ PrefabInstance:
     - target: {fileID: 7352953666929008853, guid: 88a2bd83cd9f44646a885b3b0679e627, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8585103563651369556, guid: 88a2bd83cd9f44646a885b3b0679e627, type: 3}
-      propertyPath: m_Size.y
-      value: 1.3121734
-      objectReference: {fileID: 0}
-    - target: {fileID: 8585103563651369556, guid: 88a2bd83cd9f44646a885b3b0679e627, type: 3}
-      propertyPath: m_Center.y
-      value: 0.31233668
-      objectReference: {fileID: 0}
-    - target: {fileID: 8585103563651369556, guid: 88a2bd83cd9f44646a885b3b0679e627, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88a2bd83cd9f44646a885b3b0679e627, type: 3}
