@@ -12,7 +12,7 @@ public class EnemiesSO : ScriptableObject
     public string Name
     { get { return _name; } }
     public int HP
-    { get { return _hp; } }
+    { get { return _hp; } set { } }
     public int DMG
     { get { return _dmg; } }
     public float Speed

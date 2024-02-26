@@ -447,6 +447,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3840091822843537472, guid: fd637a46c3810814498f9b5021e250e1, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3840091823120815509, guid: fd637a46c3810814498f9b5021e250e1, type: 3}
       propertyPath: PlayerStats.speed
       value: 100

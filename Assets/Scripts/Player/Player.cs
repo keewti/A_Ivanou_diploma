@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] public Stats PlayerStats = new Stats(100, 5, 0, 1f);
+    [SerializeField] public Stats PlayerStats = new(100, 5, 1f);
     private GameObject _dmgZone;
     private Animator _animator;
     private float _curSpeed;
@@ -31,7 +31,6 @@ public class Player : MonoBehaviour
     }
     public void TakeDMG(int DMG)
     {
-        Debug.Log(PlayerStats.hp);
         PlayerStats.hp -= DMG;
         DeathCheck();
     }

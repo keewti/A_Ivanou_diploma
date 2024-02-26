@@ -5,15 +5,13 @@ using UnityEngine;
 public struct Stats
 {
     public int hp;
-    public int attackDMG;
-    public int contactDMG;
+    public int DMG;
     public float speed;
 
-    public Stats(int hp, int attackDMG, int contactDMG, float speed)
+    public Stats(int hp, int dmg, float speed)
     {
         this.hp = hp;
-        this.attackDMG = attackDMG;
-        this.contactDMG = contactDMG;
+        this.DMG = dmg;
         this.speed = speed;
     }
 }
