@@ -93,6 +93,6 @@ public class PlayerControls : MonoBehaviour
         var hit = Physics2D.Raycast(transform.position, Vector2.down, 1f, ~_ignoreLayers);
         return hit.collider != null;
     }
-    private void IsPlayerAlive(bool isAlive) => _isAlive = isAlive;
+    private void IsPlayerAlive() => _isAlive = false;
 
 }

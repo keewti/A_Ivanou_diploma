@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3840091822843537479}
   - component: {fileID: 3840091822843537472}
+  - component: {fileID: 1151095765}
   m_Layer: 3
   m_Name: DMGZone
   m_TagString: Untagged
@@ -42,7 +43,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -66,6 +67,18 @@ PolygonCollider2D:
       - {x: -0.3267914, y: 0.37062693}
       - {x: 0.7574321, y: -0.37211192}
       - {x: 1.6035432, y: -0.6740193}
+--- !u!114 &1151095765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3840091822843537478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce4cda1a92f3009489ad63faef429186, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3840091823120815725
 GameObject:
   m_ObjectHideFlags: 0
@@ -83,7 +96,7 @@ GameObject:
   - component: {fileID: 1411083779}
   m_Layer: 3
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -169,7 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inputs: {fileID: 0}
-  _jumpHeight: 20
+  _jumpHeight: 5
   _jumpLenght: 0.3
   _ignoreLayers:
     serializedVersion: 2
@@ -209,8 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerStats:
     hp: 100
-    attackDMG: 5
-    contactDMG: 0
+    DMG: 5
     speed: 100
 --- !u!50 &1411083778
 Rigidbody2D:

@@ -9,8 +9,9 @@ public class Player : MonoBehaviour
     private GameObject _dmgZone;
     private Animator _animator;
     private float _curSpeed;
-    public static UnityEvent<bool> IsAlive = new();
+    public static UnityEvent IsAlive = new();
     public static UnityEvent<int> HPChanged = new();
+    public static UnityEvent IsDead = new();
     private void Start()
     {
         _curSpeed = PlayerStats.speed;
@@ -46,8 +47,10 @@ public class Player : MonoBehaviour
     }
     private void Kill()
     {
-        //todo lose screen
         _animator.SetBool("isDead", true);
-        IsAlive.Invoke(false);
+    }
+    private void Death()
+    {
+        IsDead.Invoke();
     }
 }

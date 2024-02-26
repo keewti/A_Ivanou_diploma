@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour
     public void TakeDMG(int dmg)
     {
         UpdateHealth(dmg);
-        Debug.Log(_enemy.HP);
+        Debug.Log(_curHP);
         DeathCheck();
     }
     private void DeathCheck() // todo: make elder class for enemies and player to do stuff like this
