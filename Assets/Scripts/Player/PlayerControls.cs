@@ -86,7 +86,6 @@ public class PlayerControls : MonoBehaviour
             _rb.velocity = new Vector2(_rb.velocity.x, _jumpHeight);
             yield return null;
         }
-        _animator.SetBool("isJumping", false);
     }
     private bool IsGrounded()
     {
@@ -94,5 +93,4 @@ public class PlayerControls : MonoBehaviour
         return hit.collider != null;
     }
     private void IsPlayerAlive() => _isAlive = false;
-
 }

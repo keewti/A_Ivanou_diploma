@@ -1090,6 +1090,23 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1396936901 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3840091823120815725, guid: fd637a46c3810814498f9b5021e250e1, type: 3}
+  m_PrefabInstance: {fileID: 3840091821709786004}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1396936909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1396936901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2414723be4fdae04080d7528e047e87c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1838578002
 GameObject:
   m_ObjectHideFlags: 0
@@ -1239,6 +1256,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1411083779, guid: fd637a46c3810814498f9b5021e250e1, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 0.65625
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411083779, guid: fd637a46c3810814498f9b5021e250e1, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 1.34375
+      objectReference: {fileID: 0}
     - target: {fileID: 3840091823120815721, guid: fd637a46c3810814498f9b5021e250e1, type: 3}
       propertyPath: _inputs
       value: 
@@ -1246,6 +1271,14 @@ PrefabInstance:
     - target: {fileID: 3840091823120815725, guid: fd637a46c3810814498f9b5021e250e1, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840091823120815726, guid: fd637a46c3810814498f9b5021e250e1, type: 3}
+      propertyPath: m_Size.x
+      value: 0.65625
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840091823120815726, guid: fd637a46c3810814498f9b5021e250e1, type: 3}
+      propertyPath: m_Size.y
+      value: 1.34375
       objectReference: {fileID: 0}
     - target: {fileID: 3840091823120815727, guid: fd637a46c3810814498f9b5021e250e1, type: 3}
       propertyPath: m_RootOrder
