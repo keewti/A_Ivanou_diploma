@@ -10,6 +10,7 @@ public class PlayerControls : MonoBehaviour
     [SerializeField] private float _jumpHeight = 3.0f;
     [SerializeField] private float _jumpLenght = 0.3f;
     [SerializeField] private LayerMask _ignoreLayers;
+    private Vector3 _scale;
     private Animator _animator;
     private Rigidbody2D _rb;
     private SpriteRenderer _spriteRenderer;
@@ -52,14 +53,14 @@ public class PlayerControls : MonoBehaviour
         {
             _animator.SetBool("isRunning", false);
         }
-        if (_rb.velocity.x > 0f)
+        if (_rb.velocity.x > 0f && transform.localScale.x < 0)
         {
-            _spriteRenderer.flipX = false;
+            Flip();
         }
         else
-        if (_rb.velocity.x < 0f)
+        if (_rb.velocity.x < 0f && transform.localScale.x > 0)
         {
-            _spriteRenderer.flipX = true;
+            Flip();
         }
     }
     private void Jumping()
@@ -93,4 +94,10 @@ public class PlayerControls : MonoBehaviour
         return hit.collider != null;
     }
     private void IsPlayerAlive() => _isAlive = false;
+    private void Flip()
+    {
+        _scale = transform.localScale;
+        _scale.x *= -1f;
+        transform.localScale = _scale;
+    }
 }

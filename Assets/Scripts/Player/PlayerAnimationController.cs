@@ -25,4 +25,8 @@ public class PlayerAnimationController : MonoBehaviour
     {
         _animator.SetBool("isHurting", false);
     }
+    public void Kill()
+    {
+        _animator.SetBool("isDead", true);
+    }
 }

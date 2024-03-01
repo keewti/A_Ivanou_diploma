@@ -12,7 +12,6 @@ public class Player : MonoBehaviour
     private PlayerAnimationController _animController;
     private float _curSpeed;
     private bool _isInvulerable = false;
-    private bool _isHurtAnimPlaying = false;
     public static UnityEvent IsAlive = new();
     public static UnityEvent<int> HPChanged = new();
     public static UnityEvent IsDead = new();
@@ -53,12 +52,8 @@ public class Player : MonoBehaviour
         { 
             PlayerStats.hp = 0;
             _isInvulerable = true;
-            Kill();
+            _animController.Kill();
         }
-    }
-    private void Kill()
-    {
-        _animator.SetBool("isDead", true);
     }
     private void Death()
     {
@@ -68,7 +63,6 @@ public class Player : MonoBehaviour
     IEnumerator InvulRoutine(float time)
     {
         _animController.Hurt();
-        _isHurtAnimPlaying = true;
         _isInvulerable = true;
         float counter = 0;
         while (counter <= time)
