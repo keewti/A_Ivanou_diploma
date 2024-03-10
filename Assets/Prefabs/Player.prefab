@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 3840091823120815509}
   - component: {fileID: 1411083778}
   - component: {fileID: 1411083779}
+  - component: {fileID: 1396936909}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -163,7 +164,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3.75, y: 2.5}
+  m_Size: {x: 0.65625, y: 1.34375}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -182,7 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inputs: {fileID: 0}
-  _jumpHeight: 5
+  _jumpHeight: 6
   _jumpLenght: 0.3
   _ignoreLayers:
     serializedVersion: 2
@@ -223,7 +224,8 @@ MonoBehaviour:
   PlayerStats:
     hp: 100
     DMG: 5
-    speed: 100
+    speed: 150
+  _iframes: 0.5
 --- !u!50 &1411083778
 Rigidbody2D:
   serializedVersion: 4
@@ -263,7 +265,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.65625, y: 1.34375}
-    newSize: {x: 3.75, y: 2.5}
+    newSize: {x: 0.65625, y: 1.34375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -271,3 +273,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.65625, y: 1.1875}
   m_EdgeRadius: 0
+--- !u!114 &1396936909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3840091823120815725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2414723be4fdae04080d7528e047e87c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
