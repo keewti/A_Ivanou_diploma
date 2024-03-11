@@ -7,14 +7,15 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private EnemiesSO _enemy;
     [SerializeField] private Player _player;
-    private Animator _animator;
+    protected Animator _animator;
     private int _maxHP;
     private int _curHP;
+    protected float _speed;
     private void Awake()
     {
         Initialize();
     }
-    private void Start()
+    public virtual void Start()
     {
         _animator = GetComponent<Animator>();
         _player = FindObjectOfType<Player>(); // TODO: make enemies find player without it
@@ -52,8 +53,9 @@ public class Enemy : MonoBehaviour
         }
         gameObject.SetActive(false);
     }
-    private void Initialize()
+    protected void Initialize()
     {
+        _speed = _enemy.Speed;
         _maxHP = _enemy.HP;
     }
     public void UpdateHealth(int dmg)
