@@ -6,7 +6,6 @@ public abstract class Creature : MonoBehaviour
 {
     protected abstract int Dmg { get; }
     protected int Hp { get; }
-    protected abstract Animator Animator { get; }
 
     public virtual void TakeDMG(int DMG)
     {

@@ -8,15 +8,12 @@ public class Player : Creature
     [SerializeField] public Stats PlayerStats = new(100, 5, 1f);
     [SerializeField] private float _iframes = 0.5f;
     private GameObject _dmgZone;
-    private Animator _animator;
     private PlayerAnimationController _animController;
     private float _curSpeed;
     private bool _isInvulerable = false;
     public static UnityEvent IsAlive = new();
     public static UnityEvent<int> HPChanged = new();
     public static UnityEvent IsDead = new();
-
-    protected override Animator Animator => _animator;
 
     protected override int Dmg => PlayerStats.DMG;
 
@@ -25,7 +22,6 @@ public class Player : Creature
         _curSpeed = PlayerStats.speed;
         _dmgZone = transform.GetChild(0).gameObject;
         _dmgZone.SetActive(false);
-        _animator = GetComponent<Animator>();
         _animController = GetComponent<PlayerAnimationController>();
     }
     public void Attack()

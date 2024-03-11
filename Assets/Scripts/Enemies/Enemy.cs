@@ -7,14 +7,12 @@ public class Enemy : Creature
 {
     [SerializeField] private EnemiesSO _enemy;
     [SerializeField] private Player _player;
-    protected Animator _animator;
+    protected EnemyAnimationController _animController;
     private int _maxHP;
     private int _curHP;
     protected float _speed;
 
     protected override int Dmg => _enemy.DMG;
-
-    protected override Animator Animator => _animator;
 
     private void Awake()
     {
@@ -22,7 +20,7 @@ public class Enemy : Creature
     }
     public virtual void Start()
     {
-        _animator = GetComponent<Animator>();
+        _animController = GetComponent<EnemyAnimationController>();
         _player = FindObjectOfType<Player>(); // TODO: make enemies find player without it
         _curHP = _maxHP;
     }
@@ -43,13 +41,12 @@ public class Enemy : Creature
         if (_curHP <= 0) 
         {
             _curHP = 0;
-            _animator.SetBool("isDead", true);
+            _animController.Kill();
             StartCoroutine(DeathRoutine(0.65f));
         }
     }
     IEnumerator DeathRoutine(float time)
     {
-        _animator.SetBool("isDead", true);
         float counter = 0;
         while (counter <= time)
         {

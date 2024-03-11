@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7352953666929008853}
   - component: {fileID: 7352953666929008842}
   - component: {fileID: 7352953666929008843}
+  - component: {fileID: 5110750396022035239}
   - component: {fileID: -3682722620875725027}
   - component: {fileID: 5419901557294815931}
   - component: {fileID: 229841523}
@@ -102,6 +103,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemy: {fileID: 11400000, guid: 33373c6508c13d14c9682f8545e1f46b, type: 2}
   _player: {fileID: 0}
+--- !u!114 &5110750396022035239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7352953666929008840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9db80006b4ff4d444969314d3d503c41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &-3682722620875725027
 Animator:
   serializedVersion: 5
