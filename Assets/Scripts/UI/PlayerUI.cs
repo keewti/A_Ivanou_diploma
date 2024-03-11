@@ -11,14 +11,17 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private Canvas _loseCanvas;
     [SerializeField] private Canvas _winCanvas;
     private Player _player;
+    private void OnEnable()
+    {
+        Player.HPChanged.AddListener(OnHPChanged);
+        Player.IsDead.AddListener(OnLose);
+        WinCheck.IsWon.AddListener(OnWin);
+    }
     private void Start()
     {
         _player = FindAnyObjectByType<Player>();
         _slider.maxValue = _player.PlayerStats.hp;
         _slider.value = _player.PlayerStats.hp;
-        Player.HPChanged.AddListener(OnHPChanged);
-        Player.IsDead.AddListener(OnLose);
-        WinCheck.IsWon.AddListener(OnWin);
     }
     private void OnHPChanged(int change)
     {
