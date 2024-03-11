@@ -40,5 +40,5 @@ public class PatrollingEnemy : Enemy
             _spriteRenderer.flipX = false;
             _destination = _rightPoint.transform;
         }
-    }    
+    }
 }

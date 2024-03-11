@@ -53,7 +53,7 @@ public class Enemy : MonoBehaviour
         }
         gameObject.SetActive(false);
     }
-    protected void Initialize()
+    private void Initialize()
     {
         _speed = _enemy.Speed;
         _maxHP = _enemy.HP;
