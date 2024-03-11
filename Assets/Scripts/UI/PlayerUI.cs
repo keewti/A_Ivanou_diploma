@@ -9,6 +9,7 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private Image _fillImage;
     [SerializeField] private Gradient _gradient;
     [SerializeField] private Canvas _loseCanvas;
+    [SerializeField] private Canvas _winCanvas;
     private Player _player;
     private void Start()
     {
@@ -17,6 +18,7 @@ public class PlayerUI : MonoBehaviour
         _slider.value = _player.PlayerStats.hp;
         Player.HPChanged.AddListener(OnHPChanged);
         Player.IsDead.AddListener(OnLose);
+        WinCheck.IsWon.AddListener(OnWin);
     }
     private void OnHPChanged(int change)
     {
@@ -27,5 +29,9 @@ public class PlayerUI : MonoBehaviour
     private void OnLose()
     {
         _loseCanvas.gameObject.SetActive(true);
+    }
+    private void OnWin()
+    {
+        _winCanvas.gameObject.SetActive(true);
     }
 }
