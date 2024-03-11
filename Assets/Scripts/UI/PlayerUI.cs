@@ -23,7 +23,6 @@ public class PlayerUI : MonoBehaviour
     private void OnHPChanged(int change)
     {
         _slider.value -= change;
-        Debug.Log(_slider.value);
         _fillImage.color = _gradient.Evaluate(_slider.value / _slider.maxValue);
     }
     private void OnLose()

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Creature
 {
     [SerializeField] private EnemiesSO _enemy;
     [SerializeField] private Player _player;
@@ -11,6 +11,11 @@ public class Enemy : MonoBehaviour
     private int _maxHP;
     private int _curHP;
     protected float _speed;
+
+    protected override int Dmg => _enemy.DMG;
+
+    protected override Animator Animator => _animator;
+
     private void Awake()
     {
         Initialize();
@@ -28,12 +33,12 @@ public class Enemy : MonoBehaviour
             _player.TakeDMG(_enemy.DMG);
         }
     }
-    public void TakeDMG(int dmg)
+    public override void TakeDMG(int dmg)
     {
         UpdateHealth(dmg);
         DeathCheck();
     }
-    private void DeathCheck() // todo: make elder class for enemies and player to do stuff like this
+    public override void DeathCheck() // todo: make elder class for enemies and player to do stuff like this
     {
         if (_curHP <= 0) 
         {
@@ -58,8 +63,8 @@ public class Enemy : MonoBehaviour
         _speed = _enemy.Speed;
         _maxHP = _enemy.HP;
     }
-    public void UpdateHealth(int dmg)
+    public void UpdateHealth(int deltaHP)
     {
-        _curHP -= dmg;
+        _curHP -= deltaHP;
     }
 }

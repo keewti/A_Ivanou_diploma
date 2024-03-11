@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Player : MonoBehaviour
+public class Player : Creature
 {
     [SerializeField] public Stats PlayerStats = new(100, 5, 1f);
     [SerializeField] private float _iframes = 0.5f;
@@ -15,6 +15,11 @@ public class Player : MonoBehaviour
     public static UnityEvent IsAlive = new();
     public static UnityEvent<int> HPChanged = new();
     public static UnityEvent IsDead = new();
+
+    protected override Animator Animator => _animator;
+
+    protected override int Dmg => PlayerStats.DMG;
+
     private void Start()
     {
         _curSpeed = PlayerStats.speed;
@@ -35,18 +40,17 @@ public class Player : MonoBehaviour
         PlayerStats.speed = _curSpeed;
         _dmgZone.SetActive(false);
     }
-    public void TakeDMG(int DMG)
+    public override void TakeDMG(int DMG)
     {
         if (_isInvulerable)
         {
             return;
         }
-        PlayerStats.hp -= DMG;
-        HPChanged.Invoke(DMG);
+        UpdateHealth(DMG);
         StartCoroutine(InvulRoutine(_iframes));
-        DeathCheck();
+        base.TakeDMG(DMG);
     }
-    private void DeathCheck()
+    public override void DeathCheck()
     {
         if (PlayerStats.hp <= 0) 
         { 
@@ -71,5 +75,10 @@ public class Player : MonoBehaviour
             yield return null;
         }
         _isInvulerable = false;
+    }
+    private void UpdateHealth(int deltaHP)
+    {
+        PlayerStats.hp -= deltaHP;
+        HPChanged.Invoke(deltaHP);
     }
 }

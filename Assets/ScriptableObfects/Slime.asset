@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Slime
   _hp: 8
-  _dmg: 5
+  _dmg: 20
   _speed: 0
